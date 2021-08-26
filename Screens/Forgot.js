@@ -39,6 +39,20 @@ handleForgot = () => {
     render() {
         return (
             <View style={styles.container}>
+             
+              
+              <View style={{marginHorizontal:"5%"}}>
+              <View style={{flex:0.1}}>
+                 <TouchableOpacity style={styles.iconContainer}
+                    onPress={()=>this.props.navigation.navigate("Login")}
+                    >
+                       <Image
+        style={styles.backIcon}
+        source={global.ASSETS.BACKICON}
+      />        
+                    </TouchableOpacity>
+              </View>
+                    <View style={{justifyContent:"center",alignContent:"center",marginTop:"40%"}}>
     <Image
         style={styles.logo}
         source={global.ASSETS.BLUELOGO}
@@ -67,17 +81,22 @@ handleForgot = () => {
                     
                  
         </View>
-        <View>
-                <Button
+        <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.handleValidate}
+              >
+                <Text style={styles.buttonTitle}>
+                  Forgot
+                </Text>
+                {/* <Button
                   containerStyle={styles.buttonContainer}
                   buttonStyle={styles.buttonStyle}
                 //   loading={this.state.buttonLoading}
-                  title="Forgot Password"
+                  title="Login"
                   titleStyle={styles.buttonTitle}
                   TouchableComponent={TouchableOpacity}
                   onPress={this.handleValidate}
-                />
-              </View>
+                /> */}
+              </TouchableOpacity>
               <View style={styles.signupContainer}>
               <Text style={styles.accountText}>Don't have an account?  <TouchableOpacity  
               onPress={() => this.props.navigation.navigate("Signup")}>
@@ -86,6 +105,9 @@ handleForgot = () => {
              
                </Text>    
               </View>
+              </View>
+              </View>
+                 
             </View>
         )
     }
@@ -95,7 +117,7 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         width:null,
-        justifyContent:"center",
+        // justifyContent:"center",
         backgroundColor:"#fff"
     },
     logo:{
@@ -108,7 +130,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeContainer:{
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginBottom:40
     },
     welcomeText:{
@@ -133,9 +155,7 @@ const styles = StyleSheet.create({
         borderWidth:0.5, 
         borderRadius:10,
         borderColor:"#8A8787",
-        marginHorizontal:10
-        // marginLeft: -40,
-        // paddingLeft: 50,
+        marginHorizontal:-12
 
       },
       inputText: {
@@ -154,11 +174,14 @@ const styles = StyleSheet.create({
         
       },
       buttonContainer: {
-        // width: 150,
+        width: "102%",
         justifyContent: "center",
         // alignContent: "center"
         alignSelf: "center",
         alignItems: "center",
+        backgroundColor:global.COLOR.PRIMARY,
+        height:"10.5%",
+        borderRadius:10
       },
       buttonStyle: {
         backgroundColor: global.COLOR.PRIMARY,
@@ -173,10 +196,6 @@ const styles = StyleSheet.create({
     
         fontSize: 16,
         paddingTop: 0,
-        paddingBottom: 14,
-        // textAlign: "center",
-        // marginBottom: 5
-        // justifyContent: "center"
       },
       signupContainer:{
           alignSelf:"center",
@@ -199,6 +218,27 @@ const styles = StyleSheet.create({
         marginTop:-20,
        
         marginBottom:34
+      },
+      backIcon:{
+          height:20,
+          width:20,
+          resizeMode:"contain",
+          paddingLeft:20
+        //   marginHorizontal:10
+          
+      },
+      icon:{
+        height:20,
+        width:20,
+        resizeMode:"contain",
+        paddingLeft:20
+      },
+      iconContainer:{
+        height:20,
+        width:50,
+        marginTop:"14%"
+        // marginLeft:18,
+        // marginTop:-50
       }
 
 })

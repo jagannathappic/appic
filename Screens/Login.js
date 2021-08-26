@@ -46,10 +46,14 @@ handleLogin = () => {
     render() {
         return (
             <View style={styles.container}>
-    <Image
+              <View style={{marginHorizontal:"5%"}}>
+                <View>
+                       <Image
         style={styles.logo}
         source={global.ASSETS.BLUELOGO}
-      />
+      />  
+                </View>
+          
       <View style={styles.welcomeContainer}>
     <Text style={styles.welcomeText}>Welcome,</Text>
     <Text style={styles.signText}>Sign in to connect!</Text>
@@ -91,8 +95,13 @@ handleLogin = () => {
 
                   </TouchableOpacity>
         </View>
-        <View>
-                <Button
+              <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.handleValidate}
+              >
+                <Text style={styles.buttonTitle}>
+                  Login
+                </Text>
+                {/* <Button
                   containerStyle={styles.buttonContainer}
                   buttonStyle={styles.buttonStyle}
                 //   loading={this.state.buttonLoading}
@@ -100,8 +109,8 @@ handleLogin = () => {
                   titleStyle={styles.buttonTitle}
                   TouchableComponent={TouchableOpacity}
                   onPress={this.handleValidate}
-                />
-              </View>
+                /> */}
+              </TouchableOpacity>
               <View style={styles.signupContainer}>
               <Text style={styles.accountText}>Don't have an account?  <TouchableOpacity  
               onPress={() => this.props.navigation.navigate("Signup")}>
@@ -110,7 +119,9 @@ handleLogin = () => {
              
                </Text>    
               </View>
-            </View>
+          
+              </View>
+     </View>
         )
     }
 }
@@ -129,7 +140,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeContainer:{
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginBottom:40
     },
     welcomeText:{
@@ -154,7 +165,7 @@ const styles = StyleSheet.create({
         borderWidth:0.5, 
         borderRadius:10,
         borderColor:"#8A8787",
-        marginHorizontal:10
+        marginHorizontal:-12
         // marginLeft: -40,
         // paddingLeft: 50,
 
@@ -175,11 +186,14 @@ const styles = StyleSheet.create({
         
       },
       buttonContainer: {
-        // width: 150,
+        width: "102%",
         justifyContent: "center",
         // alignContent: "center"
         alignSelf: "center",
         alignItems: "center",
+        backgroundColor:global.COLOR.PRIMARY,
+        height:"9%",
+        borderRadius:10
       },
       buttonStyle: {
         backgroundColor: global.COLOR.PRIMARY,
@@ -194,7 +208,7 @@ const styles = StyleSheet.create({
     
         fontSize: 16,
         paddingTop: 0,
-        paddingBottom: 14,
+        // paddingBottom: 14,
         // textAlign: "center",
         // marginBottom: 5
         // justifyContent: "center"
@@ -216,7 +230,7 @@ const styles = StyleSheet.create({
       },
       forgotContainer:{
         alignSelf:"flex-end",
-        marginRight:20,
+        // marginRight:10,
         marginTop:-20,
        
         marginBottom:34

@@ -47,7 +47,8 @@ handleNewPassword = () => {
     render() {
         return (
             <View style={styles.container}>
-    <Image
+              <View style={{marginHorizontal:"5%"}}>
+              <Image
         style={styles.logo}
         source={global.ASSETS.BLUELOGO}
       />
@@ -88,17 +89,24 @@ handleNewPassword = () => {
                     
                  
         </View>
-        <View>
-                <Button
+        <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.handleValidate}
+              >
+                <Text style={styles.buttonTitle}>
+                  Login
+                </Text>
+                {/* <Button
                   containerStyle={styles.buttonContainer}
                   buttonStyle={styles.buttonStyle}
                 //   loading={this.state.buttonLoading}
-                  title="Update Password"
+                  title="Login"
                   titleStyle={styles.buttonTitle}
                   TouchableComponent={TouchableOpacity}
                   onPress={this.handleValidate}
-                />
+                /> */}
+              </TouchableOpacity>
               </View>
+    
              
             </View>
         )
@@ -122,7 +130,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeContainer:{
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginBottom:40
     },
     welcomeText:{
@@ -147,9 +155,10 @@ const styles = StyleSheet.create({
         borderWidth:0.5, 
         borderRadius:10,
         borderColor:"#8A8787",
-        marginHorizontal:10
+        marginHorizontal:-12
         // marginLeft: -40,
         // paddingLeft: 50,
+
 
       },
       inputText: {
@@ -168,11 +177,14 @@ const styles = StyleSheet.create({
         
       },
       buttonContainer: {
-        // width: 150,
+        width: "102%",
         justifyContent: "center",
         // alignContent: "center"
         alignSelf: "center",
         alignItems: "center",
+        backgroundColor:global.COLOR.PRIMARY,
+        height:"10.5%",
+        borderRadius:10
       },
       buttonStyle: {
         backgroundColor: global.COLOR.PRIMARY,
@@ -187,10 +199,6 @@ const styles = StyleSheet.create({
     
         fontSize: 16,
         paddingTop: 0,
-        paddingBottom: 14,
-        // textAlign: "center",
-        // marginBottom: 5
-        // justifyContent: "center"
       },
       signupContainer:{
           alignSelf:"center",

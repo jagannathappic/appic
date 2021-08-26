@@ -52,7 +52,8 @@ export default class Signup extends Component {
     render() {
         return (
             <View style={styles.container}>
-    <Image
+              <View style={{marginHorizontal:"5%"}}>
+              <Image
         style={styles.logo}
         source={global.ASSETS.BLUELOGO}
       />
@@ -106,29 +107,45 @@ export default class Signup extends Component {
                      </View>
                  
         </View>
-        <CheckBox
+        <View style={{flexDirection:"row",justifyContent:"flex-start",marginBottom:"2%",marginTop:"-7%"}}>
+          <View>
+                    <CheckBox
         containerStyle={styles.checkContainer}
         
-        title="Accept terms & conditions"
-        textStyle={styles.termText}
-  checkedIcon={<Image source={global.ASSETS.CHECKED} />}
-  uncheckedIcon={<Image source={global.ASSETS.UNCHEKED} />}
+        // title="Accept terms & conditions"
+        // textStyle={styles.termText}
+  checkedIcon={<Image source={global.ASSETS.CHECKED}  style={styles.checkImage} />}
+  uncheckedIcon={<Image source={global.ASSETS.UNCHEKED} style={styles.checkImage} />}
   checked={this.state.checked}
   onPress={() => this.setState({checked: !this.state.checked})}
-/>
+/>  
+          </View>
+      
+<View style={styles.checkTextContainer}>
+  <Text style={styles.termText}>Accept 
+  
+   </Text>
+   <Text style={styles.conditionText}>Terms & Conditions</Text>
+</View>
 
-        <View>
-                <Button
+        </View>
+  
+<TouchableOpacity style={styles.buttonContainer}
+              onPress={this.handleValidate}
+              >
+                <Text style={styles.buttonTitle}>
+                  Signup
+                </Text>
+                {/* <Button
                   containerStyle={styles.buttonContainer}
                   buttonStyle={styles.buttonStyle}
                 //   loading={this.state.buttonLoading}
-                  title="Sign up"
+                  title="Login"
                   titleStyle={styles.buttonTitle}
                   TouchableComponent={TouchableOpacity}
                   onPress={this.handleValidate}
-                // onPress={() => this.props.navigation.navigate("EmailVerification")}
-                />
-              </View>
+                /> */}
+              </TouchableOpacity>
               <View style={styles.signupContainer}>
               <Text style={styles.accountText}>Already have an account? {""} 
                <TouchableOpacity  onPress={() => this.props.navigation.navigate("Login")}>
@@ -137,6 +154,8 @@ export default class Signup extends Component {
              
                </Text>    
               </View>
+              </View>
+   
             </View>
         )
     }
@@ -156,7 +175,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeContainer:{
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginBottom:40
     },
     welcomeText:{
@@ -181,7 +200,7 @@ const styles = StyleSheet.create({
         borderWidth:0.5,
         borderRadius:10,
         borderColor:"#8A8787",
-        marginHorizontal:10
+        marginHorizontal:-12
         // marginLeft: -40,
         // paddingLeft: 50,
 
@@ -202,11 +221,14 @@ const styles = StyleSheet.create({
         
       },
       buttonContainer: {
-        // width: 150,
+        width: "102%",
         justifyContent: "center",
         // alignContent: "center"
         alignSelf: "center",
         alignItems: "center",
+        backgroundColor:global.COLOR.PRIMARY,
+        height:"8%",
+        borderRadius:10
       },
       buttonStyle: {
         backgroundColor: global.COLOR.PRIMARY,
@@ -221,7 +243,7 @@ const styles = StyleSheet.create({
     
         fontSize: 16,
         paddingTop: 0,
-        paddingBottom: 14,
+        // paddingBottom: 14,
         // textAlign: "center",
         // marginBottom: 5
         // justifyContent: "center"
@@ -250,14 +272,34 @@ const styles = StyleSheet.create({
       termText:{
         fontSize:14,
         color:"#000",
-        fontWeight:"300"
+        fontWeight:"300",
+        marginLeft:5
+      },
+      conditionText:{
+        fontSize:14,
+        color:global.COLOR.PRIMARY,
+        fontWeight:"300",
+        textDecorationLine:"underline",
+        marginLeft:8
       },
       checkContainer:{
-        marginLeft:20,
+        marginLeft:-12,
         backgroundColor:"#fff",
-        borderRadius:10,
-        marginRight:20,
-        marginBottom:20
+        // borderRadius:10,
+        // marginHorizontal:-30,
+        marginRight:-6,
+        marginBottom:20,
+        borderColor:"#fff"
+      },
+      checkTextContainer:{
+        marginTop:16,
+        flexDirection:"row",
+        justifyContent:"flex-start"
+      },
+      checkImage:{
+        height:22,
+        width:22,
+        resizeMode:"contain"
       }
 
 })

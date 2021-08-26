@@ -10,7 +10,7 @@ LogBox.ignoreAllLogs()
 const App = () => {
   return (
     <NavigationContainer>
-      <AppNavigator/>
+      <MainNavigator/>
     </NavigationContainer>
   );
 };

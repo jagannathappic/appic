@@ -9,6 +9,7 @@ import ChangePassword from "../Screens/changePassword"
 import OTP from "../Screens/opt"
 import Home  from '../Screens/Home'
 import CourseDetail from "../Screens/courseDetail"
+import Airframe from "../Screens/airframe"
  
 
 const Stack = createStackNavigator();
@@ -32,7 +33,8 @@ export default function AuthNavigator() {
         <Stack.Screen name="OTP" component={OTP}/>
         <Stack.Screen name="Home" component={Home}/>
         <Stack.Screen name="CourseDetail" component={CourseDetail}/>
-
+        <Stack.Screen name="Airframe" component={Airframe}/>
+         
        
       </Stack.Navigator>
     );

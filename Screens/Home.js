@@ -13,6 +13,7 @@ import {
 import { Overlay } from "react-native-elements"
 import slide from "../assets/banner.jpg";
 import Carousel from "react-native-banner-carousel";
+import Powerplant from "../Screens/powerplane"
 import global from "../global";
 
 
@@ -64,22 +65,23 @@ export default class Home extends Component {
     //   };
   renderPage(image, index) {
     return (
-      <View key={index}>
+      <ScrollView key={index}>
         <Image style={{ width: BannerWidth, height: 200,resizeMode:"cover" }} source={slide} />
-      </View>
+      </ScrollView>
     );
   }
 
   render() {
     return (
-      <View style={styles.container}>
-          <Text style={styles.homeText}>Home</Text>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false} marginBottom={70}>
+          {/* <Text style={styles.homeText}>Home</Text> */}
         <View style={styles.banner}>
           <Carousel
-            // autoplay
+            autoplay
             autoplayTimeout={5000}
+            showsPageIndicator={true}
             loop
-            index={0}
+            index={1}
             pageSize={BannerWidth}
             //   pageIndicatorContainerStyle={{ marginTop: 600 }}
             //   showsPageIndicator={true}
@@ -91,32 +93,30 @@ export default class Home extends Component {
           
           </View>
           </View>
-          <ScrollView showsVerticalScrollIndicator={false}>
+          
 
                <View>
                 <TouchableOpacity style={styles.imageContainer}
-                onPress={()=>this.props.navigation.navigate("CourseDetail")}
+                onPress={()=>this.props.navigation.navigate("CourseDetails")}
                 >
-            <Image source = {global.ASSETS.EDUCATION} style={{width:360,height:160,
-            resizeMode:"cover",borderTopLeftRadius:9,borderTopRightRadius:9,alignSelf:"center"
-            }}  />
-            <Text style={styles.courseText}>BBA- Bachelor of Business{"\n"}Administration </Text>
+            <Image source = {global.ASSETS.EDUCATION} style={styles.image}  />
+            <Text style={styles.courseText}>General</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.imageContainer}>
-            <Image source = {global.ASSETS.EDUCATION} style={{width:360,height:160,
-            resizeMode:"cover",borderTopLeftRadius:9,borderTopRightRadius:9,alignSelf:"center"
-            }}  />
-            <Text style={styles.courseText}>MBBS- Bachelor of Medicine and{"\n"}Bachelor of Surgery </Text>
+        <TouchableOpacity
+        onPress={()=>this.props.navigation.navigate("Airframe")}
+        style={styles.imageContainer}>
+        <Image source = {global.ASSETS.EDUCATION} style={styles.image}  />
+            <Text style={styles.courseText}>Airframe </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.imageContainer}>
-            <Image source = {global.ASSETS.EDUCATION} style={{width:360,height:150,
-            resizeMode:"cover",borderTopLeftRadius:9,borderTopRightRadius:9,alignSelf:"center"
-            }}  />
-            <Text style={styles.courseText}>BBA- Bachelor of Business{"\n"}Administration </Text>
+        <TouchableOpacity
+         onPress={()=>this.props.navigation.navigate("Powerplant")}
+        style={styles.imageContainer}>
+        <Image source = {global.ASSETS.EDUCATION} style={styles.image}  />
+            <Text style={styles.courseText}>Powerplant </Text>
         </TouchableOpacity>
           
           </View>
-        </ScrollView>
+       
         {/* <Overlay
           overlayStyle={styles.overlay}
           containerStyle={styles.overlayContainer}
@@ -130,7 +130,7 @@ export default class Home extends Component {
          
         </Overlay> */}
       
- </View>
+ </ScrollView>
          
        
     
@@ -165,15 +165,17 @@ const styles = StyleSheet.create({
       margin:16
   },
   courseText:{
-      color:"gray",
       fontSize:14,
       marginHorizontal:20,
-      marginVertical:10
+      marginVertical:10,
+      color:"#000",
+      fontWeight:"bold",
+       
   },
   imageContainer:{
     backgroundColor:"#fff",
-      borderWidth:1,
-      borderColor:"gray",
+      borderWidth:0.1,
+      borderColor:"#fff",
       borderRadius:10,
       marginTop:10,
       marginHorizontal:16,
@@ -181,10 +183,17 @@ const styles = StyleSheet.create({
      
       shadowColor: '#000000',
       shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.9,
-      shadowRadius: 3,
-      elevation: 9,
+      shadowOpacity: 0.98,
+      // shadowRadius: 3,
+      elevation: 3,
     
-  }
+  },
+  image:{width:"100%",
+  height:120, 
+    resizeMode:"cover",
+    borderTopLeftRadius:9,
+    borderTopRightRadius:9,
+    alignSelf:"center"
+    }
  
 });

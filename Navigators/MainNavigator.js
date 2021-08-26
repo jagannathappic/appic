@@ -19,7 +19,7 @@ export default function MainNavigator() {
   }, []);
 
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="AuthNavigator">
+    <Stack.Navigator headerMode="none" initialRouteName="App">
         
     <Stack.Screen name="Auth" component={AuthNavigator} />
     <Stack.Screen name="App" component={AppNavigator} />

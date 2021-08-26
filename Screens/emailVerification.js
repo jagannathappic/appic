@@ -36,7 +36,8 @@ export default class emailVerification extends Component {
     render() {
         return (
             <View style={styles.container}>
-                
+                <View style={{marginHorizontal:"5%"}}>
+                  <View style={{flex:0.1}}>
                     <TouchableOpacity style={styles.iconContainer}
                     onPress={()=>this.props.navigation.navigate("Forgot")}
                     >
@@ -45,8 +46,10 @@ export default class emailVerification extends Component {
         source={global.ASSETS.BACKICON}
       />        
                     </TouchableOpacity>
+                  </View>
+                      
          
-                <View style={{justifyContent:"center", flex:0.76}}>
+                <View style={{justifyContent:"center",alignContent:"center",marginTop:"20%"}}>
                 <Image
         style={styles.logo}
         source={global.ASSETS.BLUELOGO}
@@ -68,7 +71,7 @@ export default class emailVerification extends Component {
           inputPosition="center"
           activeColor={global.COLOR.PRIMARY}
           inactiveColor="gray"
-          size={45}
+          size={40}
           onFulfill={(code) =>
             this.setState({
               code,
@@ -85,22 +88,28 @@ export default class emailVerification extends Component {
       <TouchableOpacity style={styles.resendContainer}>
           <Text style={styles.resendText}>Resend Otp</Text>
       </TouchableOpacity>
-     
-      <View>
-                <Button
+      <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.handleValidate}
+              >
+                <Text style={styles.buttonTitle}>
+                  Complete Verification
+                </Text>
+                {/* <Button
                   containerStyle={styles.buttonContainer}
                   buttonStyle={styles.buttonStyle}
                 //   loading={this.state.buttonLoading}
-                  title="Complete Verification"
+                  title="Login"
                   titleStyle={styles.buttonTitle}
                   TouchableComponent={TouchableOpacity}
                   onPress={this.handleValidate}
-                />
-              </View>
+                /> */}
+              </TouchableOpacity>
        
              
                 </View>
     
+                </View>
+                
             </View>
         )
     }
@@ -121,7 +130,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeContainer:{
-        marginHorizontal:20,
+        // marginHorizontal:20,
         marginBottom:20
     },
     welcomeText:{
@@ -137,18 +146,19 @@ const styles = StyleSheet.create({
       borderWidth: 1,
        
       backgroundColor: "#fff",
-      height: 50,
-      width: 50,
+      height: 44,
+      width: 44,
       borderRadius:6,
-      marginLeft:7,
+      // marginLeft:7,
       
       color:"#000",
       fontWeight:"bold",
       fontSize: 18,
     },
     resendContainer:{
-        marginTop:80,
-        alignSelf:"center"
+        marginTop:60,
+        alignSelf:"center",
+        marginBottom:20
     },
     resendText:{
         color:"#000",
@@ -156,12 +166,14 @@ const styles = StyleSheet.create({
         fontWeight:"bold"
     },
     buttonContainer: {
-        // width: 150,
-        justifyContent: "center",
-        // alignContent: "center"
-        alignSelf: "center",
-        alignItems: "center",
-        marginTop:30
+      width: "102%",
+      justifyContent: "center",
+      // alignContent: "center"
+      alignSelf: "center",
+      alignItems: "center",
+      backgroundColor:global.COLOR.PRIMARY,
+      height:"12.5%",
+      borderRadius:10
       },
       buttonStyle: {
         backgroundColor: global.COLOR.PRIMARY,
@@ -176,10 +188,6 @@ const styles = StyleSheet.create({
     
         fontSize: 16,
         paddingTop: 0,
-        paddingBottom: 14,
-        // textAlign: "center",
-        // marginBottom: 5
-        // justifyContent: "center"
       },
       backIcon:{
           height:20,
@@ -198,8 +206,7 @@ const styles = StyleSheet.create({
       iconContainer:{
         height:20,
         width:50,
-        marginLeft:18,
-        marginTop:-50
+        marginTop:"-24%"
       }
       
 
